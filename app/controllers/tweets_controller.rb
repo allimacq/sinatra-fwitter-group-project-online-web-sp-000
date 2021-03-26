@@ -58,4 +58,7 @@ class TweetsController < ApplicationController
     end
   end
   
+  get "/tweets/:id/delete" do
+    
+  
 end
