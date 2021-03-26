@@ -47,7 +47,7 @@ class TweetsController < ApplicationController
     end
   end
     
-  patch "/tweets/:id/edit" do
+  patch "/tweets/:id" do
     @tweet =Tweet.find_by_id(params[:id])
     if params[:content].empty?
       redirect "/tweets/#{@tweet.id}/edit"
@@ -59,6 +59,15 @@ class TweetsController < ApplicationController
   end
   
   get "/tweets/:id/delete" do
+      if Helpers.logged_in?(session) == true
+        @tweet = Tweet.find_by_id(params[:id])
+        erb :'/tweets/delete'
+    else
+      redirect "/login"
+    end
+  end
+  
+  delete "/tweets/:id"
     
   
 end
