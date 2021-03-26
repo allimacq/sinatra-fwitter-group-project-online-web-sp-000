@@ -58,14 +58,14 @@ class TweetsController < ApplicationController
     end
   end
   
-  get "/tweets/:id/delete" do
-    if Helpers.logged_in?(session) == true
-      @tweet = Tweet.find_by_id(params[:id])
-      erb :'/tweets/delete'
-    else
-      redirect "/login"
-    end
-  end
+  #get "/tweets/:id/delete" do
+    #if Helpers.logged_in?(session) == true
+      #@tweet = Tweet.find_by_id(params[:id])
+      #erb :'/tweets/delete'
+    #else
+      #redirect "/login"
+    #end
+  #end
   
   delete "/tweets/:id/delete" do
     @tweet = Tweet.find_by_id(params[:id])
